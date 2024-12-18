@@ -1,0 +1,18 @@
+<% if (!detail) { %>
+    <h1 class="mt-3">Details:</h1>
+    <div class="alert alert-danger" role="alert">
+        Contact tidak ada!
+        <br>
+        <a href="/contacts" class="card-link fw-bold  text-decoration-none text-dark "> Kembali Ke Contacts</a>
+    </div>
+<% } else { %>
+    <h1 class="mt-3">Details:</h1>
+    <div class="card mt-1" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title"><%= detail.nama %></h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary"><%- detail.noHP %></h6>
+            <p class="card-text"><%- detail.email %></p>
+            <a href="/contacts %>" class="card-link bi bi-chevron-double-left">Kembali Ke Contacts</a>
+        </div>
+    </div>
+<% } %> 

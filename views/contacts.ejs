@@ -1,0 +1,32 @@
+<h1 class="mt-3">Daftar Contacts</h1>
+    <table class="table mt-1">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nama</th>
+                <th scope="col">NoHP</th>
+                <th scope="col">Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (!contacts.length) { %>
+                <tr>
+                    <td colspan="4">
+                        <div class="alert alert-danger" role="alert">
+                            Contact kosong!
+                        </div>
+                    </td>
+                </tr>
+            <% } %>
+            <% contacts.forEach((mhs,i) => { %>
+            <tr>    
+                <th scope="row"><%- ++i %></th>
+                <td><%- mhs.nama %></td>
+                <td><%- mhs.noHP %></td>
+                <td>
+                    <a class="btn btn-primary btn-sm rounded-pill bi bi-info-circle" href="/contacts/<%= mhs.nama %>"> Detail</a>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
