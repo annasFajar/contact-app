@@ -1,3 +1,5 @@
+const ejs = require('ejs');
+const fs = require('fs');
 const express = require('express');
 const app = express()
 const port = 3000
@@ -59,6 +61,21 @@ app.get('/contacts/:nama',(req, res,next) => {
         detail
     } )
 })
+const data = {
+        title: 'MyIndex',
+        page:'contacts',
+        vContent: 'contacts.ejs',
+        contacts, 
+    };
+    
+    ejs.renderFile('views/main.ejs', data, (err, html) => {
+    if (err) {
+        console.error(err);
+        return;
+    }
+    fs.writeFileSync('views/index.html', html); // Simpan hasil ke folder dist
+    console.log('EJS rendered to HTML successfully!');
+    });
 
 
 // klo param doang bearti semua yang di url di panggil di get harus ada : (titik dua)
@@ -76,6 +93,7 @@ app.get('/home/:id', function (req, res, next) {
     console.log('although this matches')
     next()
 })
+
 
 
 app.use((req,res,next)=>{
