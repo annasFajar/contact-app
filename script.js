@@ -73,7 +73,7 @@ const data = {
         console.error(err);
         return;
     }
-    fs.writeFileSync('views/index.html', html); // Simpan hasil ke folder dist
+    fs.writeFileSync('index.html', html); // Simpan hasil ke folder dist
     console.log('EJS rendered to HTML successfully!');
     });
 
